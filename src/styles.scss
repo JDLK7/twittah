@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+  margin: 0;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  margin: 5rem 10rem;
+
+  > [class^="flex-column"] {
+    margin: .5rem;
+  }
+
+  > .flex-column {
+    flex: 1;
+  }
+  > .flex-column-1 {
+    flex: 1;
+  }
+  > .flex-column-2 {
+    flex: 2;
+  }
+}
+
+.tweet, .editor {
+  padding: .75rem .5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}

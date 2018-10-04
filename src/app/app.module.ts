@@ -7,12 +7,24 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
+import { MenubarModule } from 'primeng/menubar';
+import { CardModule } from 'primeng/card';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 import { AppComponent } from './app.component';
+import { TweetComponent } from './tweet/tweet.component';
+
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
+import { TweetEditorComponent } from './tweet-editor/tweet-editor.component';
+import { TimelineComponent } from './timeline/timeline.component';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        TweetComponent,
+        TweetEditorComponent,
+        TimelineComponent
     ],
     imports: [
         BrowserModule,
@@ -22,7 +34,18 @@ import { AppComponent } from './app.component';
         HttpClientModule,
         InputTextModule,
         DialogModule,
-        ButtonModule
+        ButtonModule,
+        MenubarModule,
+        CardModule,
+        InputTextareaModule,
+        HttpClientModule,
+
+        // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
+        // and returns simulated server responses.
+        // Remove it when a real server is ready to receive requests.
+        HttpClientInMemoryWebApiModule.forRoot(
+            InMemoryDataService, { dataEncapsulation: false }
+        )
     ],
     providers: [],
     bootstrap: [AppComponent]

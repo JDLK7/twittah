@@ -1,0 +1,10 @@
+<div class="editor">
+    <textarea [(ngModel)]="tweet.text"
+              (click)="expanded = true"
+              [ngClass]="{ 'expanded': expanded }"
+              rows="1" placeholder="Wanna tweet something?" pInputTextarea></textarea>
+    <div *ngIf="expanded" class="tweet-actions">
+        <p-button (onClick)="expanded = false; tweet.text = ''" label="Cancel" class="ui-button-secondary"></p-button>
+        <p-button (onClick)="publish()" label="Publish"></p-button>
+    </div>
+</div>
