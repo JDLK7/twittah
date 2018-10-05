@@ -5,10 +5,20 @@
       <a href="#">
         <span class="fullname"><b>Author</b></span>
         <span class="username">@Peter</span>
+        <p-button *ngIf="isEditing"
+                  (click)="isEditing = false; update()"
+                  icon="pi pi-check" style="float: right;"></p-button>
+        <p-button (click)="isEditing = !isEditing"
+                  icon="pi pi-pencil" style="float: right;"></p-button>
       </a>
     </div>
     <div class="tweet-body">
-      <p>{{ tweet.text }}</p>
+      <p *ngIf="!isEditing">{{ tweet.text }}</p>
+      <textarea *ngIf="isEditing"
+                [(ngModel)]="tweet.text"
+                (keydown.esc)="isEditing = false"
+                class="expanded"
+                pInputTextarea></textarea>
     </div>
     <div class="tweet-footer">
       <div class="retweet-counter">

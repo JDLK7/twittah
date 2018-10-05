@@ -28,3 +28,12 @@ body {
   padding: .75rem .5rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
+
+textarea {
+  width: 100%;
+  resize: none;
+}
+
+textarea.expanded {
+  height: 5rem;
+}

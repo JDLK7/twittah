@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { TweetService } from '../tweet.service';
 import { Tweet } from '../tweet';
 
 @Component({
@@ -9,10 +10,20 @@ import { Tweet } from '../tweet';
 export class TweetComponent implements OnInit {
 
   @Input() tweet: Tweet;
+  isEditing: boolean;
 
-  constructor() { }
+  constructor(
+    private tweetService: TweetService
+  ) {
+    this.isEditing = false;
+  }
 
   ngOnInit() {
+  }
+
+  update() {
+    return this.tweetService.updateTweet(this.tweet)
+      .subscribe();
   }
 
 }

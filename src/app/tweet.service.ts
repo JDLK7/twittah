@@ -47,4 +47,13 @@ export class TweetService {
         catchError(this.handleError<Tweet>('addTweet'))
       );
   }
+
+  updateTweet(tweet: Tweet): Observable<Tweet> {
+    return this.http.put<Tweet>(this.tweetsUrl, tweet, httpOptions)
+      .pipe(
+        tap(_ => this.log(`Updated tweet ${tweet.id} with text: "${tweet.text}"`)),
+        catchError(this.handleError<any>('updateTweet'))
+      );
+  }
+
 }

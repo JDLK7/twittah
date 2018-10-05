@@ -1,12 +1,3 @@
-textarea {
-  width: 100%;
-  resize: none;
-}
-
-textarea.expanded {
-  height: 5rem;
-}
-
 .tweet-actions {
   text-align: right;
 }
