@@ -21,7 +21,13 @@ export class TimelineComponent implements OnInit {
 
   fetchTweets(): void {
     this.tweetService.getTweets()
-      .subscribe(tweets => this.tweets = tweets.slice(0, 9));
+      .subscribe((tweets) => {
+        this.tweets = tweets.sort((a, b) => a.createdAt > b.createdAt ? -1 : 1);
+      });
+  }
+
+  refresh(): void {
+    this.fetchTweets();
   }
 
 }

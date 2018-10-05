@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { TweetService } from '../tweet.service';
 import { Tweet } from '../tweet';
 
@@ -9,15 +9,13 @@ import { Tweet } from '../tweet';
 })
 export class TweetEditorComponent implements OnInit {
 
-  expanded: boolean;
-  @Input() tweet: Tweet;
+  expanded = false;
+  @Input() tweet = new Tweet;
+  @Output() published = new EventEmitter();
 
   constructor(
     private tweetService: TweetService
-  ) {
-    this.expanded = false;
-    this.tweet = new Tweet;
-  }
+  ) { }
 
   ngOnInit() {
   }
@@ -29,6 +27,8 @@ export class TweetEditorComponent implements OnInit {
 
     this.expanded = false;
     this.tweet = new Tweet;
+
+    this.published.emit('tweetPublished');
   }
 
 }
