@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
+
+import { ButtonModule } from 'primeng/button';
 
 import { TweetComponent } from './tweet.component';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('TweetComponent', () => {
   let component: TweetComponent;
@@ -8,7 +12,12 @@ describe('TweetComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TweetComponent ]
+      declarations: [ TweetComponent ],
+      imports: [
+        ButtonModule,
+        FormsModule,
+        HttpClientModule,
+      ],
     })
     .compileComponents();
   }));

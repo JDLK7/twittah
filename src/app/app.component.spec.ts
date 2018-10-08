@@ -2,9 +2,14 @@ import { TestBed, async } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
+import { MenubarModule } from 'primeng/menubar';
+import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
+
+import { TweetEditorComponent } from './tweet-editor/tweet-editor.component';
+import { TimelineComponent } from './timeline/timeline.component';
+import { TweetComponent } from './tweet/tweet.component';
 import { AppComponent } from './app.component';
-import { TableModule } from 'primeng/table';
-import { DialogModule } from 'primeng/dialog';
 
 describe('AppComponent', () => {
     beforeEach(async(() => {
@@ -12,11 +17,15 @@ describe('AppComponent', () => {
             imports: [
                 FormsModule,
                 HttpClientTestingModule,
-                TableModule,
-                DialogModule
+                MenubarModule,
+                ButtonModule,
+                CardModule,
             ],
             declarations: [
-                AppComponent
+                TweetEditorComponent,
+                TimelineComponent,
+                TweetComponent,
+                AppComponent,
             ],
         }).compileComponents();
     }));

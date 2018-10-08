@@ -1,6 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
+import { TweetEditorComponent } from '../tweet-editor/tweet-editor.component';
 import { TimelineComponent } from './timeline.component';
+import { TweetComponent } from '../tweet/tweet.component';
+
+import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
 
 describe('TimelineComponent', () => {
   let component: TimelineComponent;
@@ -8,7 +15,17 @@ describe('TimelineComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TimelineComponent ]
+      declarations: [
+        TweetEditorComponent,
+        TimelineComponent,
+        TweetComponent,
+      ],
+      imports: [
+        ButtonModule,
+        FormsModule,
+        CardModule,
+        HttpClientModule,
+      ],
     })
     .compileComponents();
   }));
